@@ -23,7 +23,7 @@ render((
 ));
 ```
 
-<img src="media/demo.gif" width="258"/>
+<img src="media/demo.gif" width="482">
 
 
 ## Props
