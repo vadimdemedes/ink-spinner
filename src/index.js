@@ -1,6 +1,6 @@
 'use strict';
 
-const {h, Text, Component} = require('ink');
+const {h, Color, Component} = require('ink');
 const PropTypes = require('prop-types');
 const spinners = require('cli-spinners');
 const omit = require('object.omit');
@@ -21,13 +21,13 @@ class Spinner extends Component {
 	}
 
 	render(props, {frame}) {
-		const textProps = omit(props, 'type');
+		const colorProps = omit(props, 'type');
 		const spinner = this.getSpinner();
 
 		return (
-			<Text {...textProps}>
+			<Color {...colorProps}>
 				{spinner.frames[frame]}
-			</Text>
+			</Color>
 		);
 	}
 

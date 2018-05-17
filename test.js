@@ -1,4 +1,4 @@
-import {h, build, Text} from 'ink';
+import {h, build, Color} from 'ink';
 import renderToString from 'ink/lib/render-to-string';
 import {stub} from 'sinon';
 import spinners from 'cli-spinners';
@@ -25,11 +25,11 @@ test('render', t => {
 	}
 });
 
-test('pass props to <Text>', t => {
+test('pass props to <Color>', t => {
 	const spinner = spinners.dots;
 
 	const actual = build(<Spinner green/>);
-	const expected = build(<Text green>{spinner.frames[0]}</Text>);
+	const expected = build(<Color green>{spinner.frames[0]}</Color>);
 
 	t.is(renderToString(actual), renderToString(expected));
 });
