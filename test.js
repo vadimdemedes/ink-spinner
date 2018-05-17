@@ -8,9 +8,9 @@ import Spinner from '.';
 test('render', t => {
 	let component;
 
-	const setRef = ref => {
+	function setRef(ref) {
 		component = ref;
-	};
+	}
 
 	const spinner = spinners.dots;
 	let tree;
@@ -39,9 +39,9 @@ test('spin', t => {
 
 	let component;
 
-	const setRef = ref => {
+	function setRef(ref) {
 		component = ref;
-	};
+	}
 
 	build(<Spinner ref={setRef}/>);
 
