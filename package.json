@@ -32,6 +32,9 @@
 		"jsx",
 		"react"
 	],
+	"peerDependencies": {
+		"ink": "^0.5.0"
+	},
 	"dependencies": {
 		"cli-spinners": "^1.0.0",
 		"object.omit": "^2.0.1",
@@ -43,7 +46,7 @@
 		"babel-plugin-transform-react-jsx": "^6.24.1",
 		"eslint-config-xo-react": "^0.13.0",
 		"eslint-plugin-react": "^7.1.0",
-		"ink": "^0.2.1",
+		"ink": "^0.5.0",
 		"sinon": "^2.3.6",
 		"xo": "^0.18.2"
 	},

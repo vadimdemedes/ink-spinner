@@ -28,7 +28,7 @@ render((
 
 ## Props
 
-All props except the own ones listed below are passed as-is to `<Text>`, which means you can easily apply any color, without wrapping `<Spinner>` in `<Text>` manually.
+All props except the own ones listed below are passed as-is to `<Color>`, which means you can easily apply any color, without wrapping `<Spinner>` in `<Color>` manually.
 
 ### type
 
