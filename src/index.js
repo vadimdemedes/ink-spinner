@@ -1,39 +1,33 @@
-'use strict';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Box} from 'ink';
+import spinners from 'cli-spinners';
 
-const {h, Color, Component} = require('ink');
-const PropTypes = require('prop-types');
-const spinners = require('cli-spinners');
-const omit = require('object.omit');
-
-class Spinner extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			frame: 0
-		};
-
-		this.switchFrame = this.switchFrame.bind(this);
+export default class Spinner extends Component {
+	static propTypes = {
+		type: PropTypes.string
 	}
 
-	getSpinner() {
-		return spinners[this.props.type] || spinners.dots;
+	static defaultProps = {
+		type: 'dots'
 	}
 
-	render(props, {frame}) {
-		const colorProps = omit(props, 'type');
+	state = {
+		frame: 0
+	}
+
+	render() {
 		const spinner = this.getSpinner();
 
 		return (
-			<Color {...colorProps}>
-				{spinner.frames[frame]}
-			</Color>
+			<Box>
+				{spinner.frames[this.state.frame]}
+			</Box>
 		);
 	}
 
 	componentDidMount() {
 		const spinner = this.getSpinner();
-
 		this.timer = setInterval(this.switchFrame, spinner.interval);
 	}
 
@@ -41,9 +35,12 @@ class Spinner extends Component {
 		clearInterval(this.timer);
 	}
 
-	switchFrame() {
-		const {frame} = this.state;
+	getSpinner() {
+		return spinners[this.props.type] || spinners.dots;
+	}
 
+	switchFrame = () => {
+		const {frame} = this.state;
 		const spinner = this.getSpinner();
 		const isLastFrame = frame === spinner.frames.length - 1;
 		const nextFrame = isLastFrame ? 0 : frame + 1;
@@ -53,13 +50,3 @@ class Spinner extends Component {
 		});
 	}
 }
-
-Spinner.propTypes = {
-	type: PropTypes.string
-};
-
-Spinner.defaultProps = {
-	type: 'dots'
-};
-
-module.exports = Spinner;

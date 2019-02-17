@@ -1,62 +1,29 @@
-import {h, build, Color} from 'ink';
-import renderToString from 'ink/lib/render-to-string';
-import {stub} from 'sinon';
+import React from 'react';
+import {render} from 'ink';
+import {spy} from 'sinon';
 import spinners from 'cli-spinners';
 import test from 'ava';
+import delay from 'delay';
 import Spinner from '.';
 
-test('render', t => {
-	let component;
-
-	function setRef(ref) {
-		component = ref;
-	}
-
-	const spinner = spinners.dots;
-	let tree;
-
-	for (let frame = 0; frame < spinner.frames.length; frame++) {
-		tree = build(<Spinner ref={setRef}/>, tree);
-		t.is(renderToString(tree), spinner.frames[frame]);
-
-		component.setState({
-			frame: frame + 1
-		});
-	}
-});
-
-test('pass props to <Color>', t => {
-	const spinner = spinners.dots;
-
-	const actual = build(<Spinner green/>);
-	const expected = build(<Color green>{spinner.frames[0]}</Color>);
-
-	t.is(renderToString(actual), renderToString(expected));
-});
-
-test('spin', t => {
-	stub(Spinner.prototype, 'setState');
-
-	let component;
-
-	function setRef(ref) {
-		component = ref;
-	}
-
-	build(<Spinner ref={setRef}/>);
+test('render spinner', async t => {
+	const stream = {
+		columns: 100,
+		write: spy()
+	};
 
 	const spinner = spinners.dots;
+	const unmount = render(<Spinner/>, {
+		stdout: stream,
+		debug: true
+	});
 
-	let frame = 1;
-	let i = 0;
+	await delay(spinner.frames.length * spinner.interval);
+	unmount();
 
-	while (i < spinner.frames.length * 2) {
-		component.switchFrame();
+	const allFrames = stream.write.args.map(args => args[0]);
+	const frames = [...new Set(allFrames)];
 
-		t.deepEqual(component.setState.getCall(i).args[0], {frame});
-		component.state = {frame};
-
-		frame = frame === spinner.frames.length - 1 ? 0 : frame + 1;
-		i++;
-	}
+	t.deepEqual(frames, spinner.frames);
+	t.pass();
 });

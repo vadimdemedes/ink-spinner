@@ -13,13 +13,14 @@ $ npm install ink-spinner
 ## Usage
 
 ```js
-const {h, render} = require('ink');
-const Spinner = require('ink-spinner');
+import React from 'react';
+import {render, Color} from 'ink';
+import Spinner from 'ink-spinner';
 
 render((
-	<div>
-		<Spinner green/> Loading
-	</div>
+	<Color green>
+		<Spinner green/>{' '}Loading
+	</Color>
 ));
 ```
 
@@ -27,8 +28,6 @@ render((
 
 
 ## Props
-
-All props except the own ones listed below are passed as-is to `<Color>`, which means you can easily apply any color, without wrapping `<Spinner>` in `<Color>` manually.
 
 ### type
 
