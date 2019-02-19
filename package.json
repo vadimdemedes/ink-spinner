@@ -40,39 +40,25 @@
 		"@babel/cli": "^7.2.3",
 		"@babel/core": "^7.3.3",
 		"@babel/plugin-proposal-class-properties": "^7.3.3",
-		"@babel/plugin-transform-modules-commonjs": "^7.2.0",
 		"@babel/preset-react": "^7.0.0",
-		"ava": "^1.2.1",
+		"ava": "*",
 		"babel-eslint": "^10.0.1",
 		"delay": "^4.1.0",
 		"eslint-config-xo-react": "^0.13.0",
 		"eslint-plugin-react": "^7.1.0",
-		"ink": "^2.0.0-12",
+		"ink": "^2.0.0-15",
 		"react": "^16.8.2",
 		"sinon": "^2.3.6",
-		"xo": "^0.24.0"
+		"xo": "*"
 	},
 	"babel": {
 		"plugins": [
-			"@babel/plugin-proposal-class-properties",
-			"@babel/plugin-transform-modules-commonjs"
+			"@babel/plugin-proposal-class-properties"
 		],
 		"presets": [
+			"@ava/stage-4",
 			"@babel/preset-react"
 		]
-	},
-	"ava": {
-		"babel": {
-			"testOptions": {
-				"plugins": [
-					"@babel/plugin-proposal-class-properties",
-					"@babel/plugin-transform-modules-commonjs"
-				],
-				"presets": [
-					"@babel/preset-react"
-				]
-			}
-		}
 	},
 	"xo": {
 		"parser": "babel-eslint",

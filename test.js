@@ -13,13 +13,13 @@ test('render spinner', async t => {
 	};
 
 	const spinner = spinners.dots;
-	const unmount = render(<Spinner/>, {
+	const app = render(<Spinner/>, {
 		stdout: stream,
 		debug: true
 	});
 
 	await delay(spinner.frames.length * spinner.interval);
-	unmount();
+	app.unmount();
 
 	const allFrames = stream.write.args.map(args => args[0]);
 	const frames = [...new Set(allFrames)];
