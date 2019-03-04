@@ -9,18 +9,18 @@
 		"email": "vdemedes@gmail.com",
 		"url": "github.com/vadimdemedes"
 	},
-	"main": "dist/index.js",
+	"main": "build/index.js",
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"scripts": {
 		"pretest": "npm run build",
 		"test": "xo && ava",
-		"build": "babel src --out-dir=dist",
-		"prepublish": "npm run build"
+		"build": "babel src --out-dir=build",
+		"prepare": "npm run build"
 	},
 	"files": [
-		"dist"
+		"build"
 	],
 	"keywords": [
 		"ink",
@@ -32,62 +32,38 @@
 		"jsx",
 		"react"
 	],
-	"peerDependencies": {
-		"ink": "^0.5.0"
-	},
 	"dependencies": {
 		"cli-spinners": "^1.0.0",
-		"object.omit": "^2.0.1",
 		"prop-types": "^15.5.10"
 	},
 	"devDependencies": {
-		"ava": "^0.20.0",
-		"babel-cli": "^6.24.1",
-		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.3.3",
+		"@babel/plugin-proposal-class-properties": "^7.3.3",
+		"@babel/preset-react": "^7.0.0",
+		"ava": "*",
+		"babel-eslint": "^10.0.1",
+		"delay": "^4.1.0",
 		"eslint-config-xo-react": "^0.13.0",
 		"eslint-plugin-react": "^7.1.0",
-		"ink": "^0.5.0",
+		"ink": "^2.0.0",
+		"react": "^16.8.2",
 		"sinon": "^2.3.6",
-		"xo": "^0.18.2"
+		"xo": "*"
 	},
 	"babel": {
 		"plugins": [
-			[
-				"transform-react-jsx",
-				{
-					"pragma": "h",
-					"useBuiltIns": true
-				}
-			]
+			"@babel/plugin-proposal-class-properties"
+		],
+		"presets": [
+			"@ava/stage-4",
+			"@babel/preset-react"
 		]
 	},
-	"ava": {
-		"babel": {
-			"presets": [
-				"@ava/stage-4"
-			],
-			"plugins": [
-				[
-					"transform-react-jsx",
-					{
-						"pragma": "h",
-						"useBuiltIns": true
-					}
-				]
-			]
-		}
-	},
 	"xo": {
+		"parser": "babel-eslint",
 		"extends": [
 			"xo-react"
-		],
-		"rules": {
-			"react/no-unused-prop-types": 1
-		},
-		"settings": {
-			"react": {
-				"pragma": "h"
-			}
-		}
+		]
 	}
 }
