@@ -46,7 +46,7 @@
 		"delay": "^4.1.0",
 		"eslint-config-xo-react": "^0.13.0",
 		"eslint-plugin-react": "^7.1.0",
-		"ink": "^2.0.0-15",
+		"ink": "^2.0.0",
 		"react": "^16.8.2",
 		"sinon": "^2.3.6",
 		"xo": "*"
