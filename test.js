@@ -1,3 +1,4 @@
+import EventEmitter from 'events';
 import React from 'react';
 import {render} from 'ink';
 import {spy} from 'sinon';
@@ -7,21 +8,27 @@ import delay from 'delay';
 import Spinner from '.';
 
 test('render spinner', async t => {
-	const stream = {
+	const stdout = {
 		columns: 100,
 		write: spy()
 	};
 
+	const stdin = new EventEmitter();
+	stdin.setRawMode = () => {};
+	stdin.setEncoding = () => {};
+	stdin.pause = () => {};
+
 	const spinner = spinners.dots;
 	const app = render(<Spinner/>, {
-		stdout: stream,
+		stdout,
+		stdin,
 		debug: true
 	});
 
 	await delay(spinner.frames.length * spinner.interval);
 	app.unmount();
 
-	const allFrames = stream.write.args.map(args => args[0]);
+	const allFrames = stdout.write.args.map(args => args[0]);
 	const frames = [...new Set(allFrames)];
 
 	t.deepEqual(frames, spinner.frames);
