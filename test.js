@@ -1,36 +1,18 @@
-import EventEmitter from 'events';
 import React from 'react';
-import {render} from 'ink';
-import {spy} from 'sinon';
+import {render} from 'ink-testing-library';
 import spinners from 'cli-spinners';
 import test from 'ava';
 import delay from 'delay';
 import Spinner from '.';
 
 test('render spinner', async t => {
-	const stdout = {
-		columns: 100,
-		write: spy()
-	};
-
-	const stdin = new EventEmitter();
-	stdin.setRawMode = () => {};
-	stdin.setEncoding = () => {};
-	stdin.pause = () => {};
-
 	const spinner = spinners.dots;
-	const app = render(<Spinner/>, {
-		stdout,
-		stdin,
-		debug: true
-	});
+	const {frames, unmount} = render(<Spinner/>);
 
 	await delay(spinner.frames.length * spinner.interval);
-	app.unmount();
+	unmount();
 
-	const allFrames = stdout.write.args.map(args => args[0]);
-	const frames = [...new Set(allFrames)];
+	const uniqueFrames = [...new Set(frames)];
 
-	t.deepEqual(frames, spinner.frames);
-	t.pass();
+	t.deepEqual(uniqueFrames, spinner.frames);
 });
