@@ -19,8 +19,9 @@ import Spinner from 'ink-spinner';
 
 render((
 	<Color green>
-		<Spinner green/>{' '}Loading
+		<Spinner />
 	</Color>
+	{' '}Loading
 ));
 ```
 
