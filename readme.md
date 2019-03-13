@@ -13,15 +13,16 @@ $ npm install ink-spinner
 ## Usage
 
 ```js
-import React from 'react';
+import React, {Fragment} from 'react';
 import {render, Color} from 'ink';
 import Spinner from 'ink-spinner';
 
-render((
-	<Color green>
-		<Spinner green/>{' '}Loading
-	</Color>
-));
+render(
+	<Fragment>
+		<Color green><Spinner type="dots"/></Color>
+		{' Loading'}
+	</Fragment>
+);
 ```
 
 <img src="media/demo.gif" width="482">
