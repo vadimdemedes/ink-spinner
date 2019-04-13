@@ -51,6 +51,10 @@
 		"react": "^16.8.2",
 		"xo": "*"
 	},
+	"peerDependencies": {
+		"react": "^16.8.2",
+		"ink": "^2.0.0"
+	},
 	"babel": {
 		"plugins": [
 			"@babel/plugin-proposal-class-properties"
