@@ -15,12 +15,14 @@
 	},
 	"scripts": {
 		"pretest": "npm run build",
-		"test": "xo && ava",
+		"test": "xo && ava && tsd",
 		"build": "babel src --out-dir=build",
 		"prepare": "npm run build"
 	},
+	"types": "index.d.ts",
 	"files": [
-		"build"
+		"build",
+		"index.d.ts"
 	],
 	"keywords": [
 		"ink",
@@ -33,7 +35,7 @@
 		"react"
 	],
 	"dependencies": {
-		"cli-spinners": "^1.0.0",
+		"cli-spinners": "^2.2.0",
 		"prop-types": "^15.5.10"
 	},
 	"devDependencies": {
@@ -49,6 +51,7 @@
 		"ink": "^2.0.0",
 		"ink-testing-library": "^1.0.0",
 		"react": "^16.8.2",
+		"tsd": "^0.11.0",
 		"xo": "*"
 	},
 	"peerDependencies": {
