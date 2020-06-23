@@ -15,7 +15,7 @@
 	},
 	"scripts": {
 		"pretest": "npm run build",
-		"test": "xo && ava && tsd",
+		"test": "xo && ava && tsc --noEmit --jsx react index.test-d.ts",
 		"build": "babel src --out-dir=build",
 		"prepare": "npm run build"
 	},
@@ -54,7 +54,7 @@
 		"ink": "^2.0.0",
 		"ink-testing-library": "^1.0.0",
 		"react": "^16.8.2",
-		"tsd": "^0.11.0",
+		"typescript": "^3.9.5",
 		"xo": "^0.32.0"
 	},
 	"peerDependencies": {
