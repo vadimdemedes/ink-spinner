@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {Box} from 'ink';
-import spinners from 'cli-spinners';
+'use strict';
+const React = require('react');
+const PropTypes = require('prop-types');
+const {Box} = require('ink');
+const spinners = require('cli-spinners');
 
-export default class Spinner extends Component {
+class Spinner extends React.Component {
 	static propTypes = {
 		type: PropTypes.string
 	}
@@ -50,3 +51,6 @@ export default class Spinner extends Component {
 		});
 	}
 }
+
+module.exports = Spinner;
+module.exports.default = Spinner;

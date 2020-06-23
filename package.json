@@ -37,19 +37,22 @@
 		"prop-types": "^15.5.10"
 	},
 	"devDependencies": {
+		"@ava/babel": "^1.0.1",
 		"@babel/cli": "^7.2.3",
 		"@babel/core": "^7.3.3",
 		"@babel/plugin-proposal-class-properties": "^7.3.3",
 		"@babel/preset-react": "^7.0.0",
-		"ava": "*",
+		"@babel/register": "^7.10.3",
+		"ava": "^3.9.0",
 		"babel-eslint": "^10.0.1",
 		"delay": "^4.1.0",
-		"eslint-config-xo-react": "^0.13.0",
-		"eslint-plugin-react": "^7.1.0",
+		"eslint-config-xo-react": "^0.23.0",
+		"eslint-plugin-react": "^7.20.0",
+		"eslint-plugin-react-hooks": "^4.0.4",
 		"ink": "^2.0.0",
 		"ink-testing-library": "^1.0.0",
 		"react": "^16.8.2",
-		"xo": "*"
+		"xo": "^0.32.0"
 	},
 	"peerDependencies": {
 		"react": "^16.8.2",
@@ -60,8 +63,13 @@
 			"@babel/plugin-proposal-class-properties"
 		],
 		"presets": [
-			"@ava/stage-4",
 			"@babel/preset-react"
+		]
+	},
+	"ava": {
+		"babel": true,
+		"require": [
+			"@babel/register"
 		]
 	},
 	"xo": {
