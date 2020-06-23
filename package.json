@@ -10,17 +10,19 @@
 		"url": "github.com/vadimdemedes"
 	},
 	"main": "build/index.js",
+	"types": "index.d.ts",
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
 		"pretest": "npm run build",
-		"test": "xo && ava",
+		"test": "tsc --noEmit --jsx react --module commonjs index.test-d.tsx && xo && ava",
 		"build": "babel src --out-dir=build",
 		"prepare": "npm run build"
 	},
 	"files": [
-		"build"
+		"build",
+		"index.d.ts"
 	],
 	"keywords": [
 		"ink",
@@ -44,7 +46,7 @@
 		"@babel/preset-react": "^7.0.0",
 		"@babel/register": "^7.10.3",
 		"ava": "^3.9.0",
-		"babel-eslint": "^10.0.1",
+		"babel-eslint": "^10.1.0",
 		"delay": "^4.1.0",
 		"eslint-config-xo-react": "^0.23.0",
 		"eslint-plugin-react": "^7.20.0",
@@ -52,6 +54,7 @@
 		"ink": "^2.0.0",
 		"ink-testing-library": "^1.0.0",
 		"react": "^16.8.2",
+		"typescript": "^3.9.5",
 		"xo": "^0.32.0"
 	},
 	"peerDependencies": {
@@ -76,6 +79,10 @@
 		"parser": "babel-eslint",
 		"extends": [
 			"xo-react"
+		],
+		"ignores": [
+			"index.d.ts",
+			"index.test-d.tsx"
 		]
 	}
 }
