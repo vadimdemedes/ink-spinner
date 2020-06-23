@@ -1,7 +1,8 @@
-# ink-spinner [![Build Status](https://travis-ci.org/vadimdemedes/ink-spinner.svg?branch=master)](https://travis-ci.org/vadimdemedes/ink-spinner)
+# ink-spinner ![test](https://github.com/vadimdemedes/ink-spinner/workflows/test/badge.svg)
 
 > Spinner component for [Ink](https://github.com/vadimdemedes/ink). Uses [cli-spinners](https://github.com/sindresorhus/cli-spinners) for the collection of spinners.
 
+Looking for a version compatible with Ink 2.x? Check out [previous release](https://github.com/vadimdemedes/ink-spinner/tree/v3.1.0).
 
 ## Install
 
@@ -9,24 +10,24 @@
 $ npm install ink-spinner
 ```
 
-
 ## Usage
 
-```js
-import React, {Fragment} from 'react';
-import {render, Color} from 'ink';
+```jsx
+import React from 'react';
+import { render, Text } from 'ink';
 import Spinner from 'ink-spinner';
 
 render(
-	<Fragment>
-		<Color green><Spinner type="dots"/></Color>
+	<Text>
+		<Text color="green">
+			<Spinner type="dots" />
+		</Text>
 		{' Loading'}
-	</Fragment>
+	</Text>
 );
 ```
 
 <img src="media/demo.gif" width="482">
-
 
 ## Props
 
@@ -36,8 +37,3 @@ Type: `string`<br>
 Defaults: `dots`
 
 Type of a spinner. See [cli-spinners](https://github.com/sindresorhus/cli-spinners) for available spinners.
-
-
-## License
-
-MIT © [Vadim Demedes](https://github.com/vadimdemedes)

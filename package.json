@@ -9,20 +9,17 @@
 		"email": "vdemedes@gmail.com",
 		"url": "github.com/vadimdemedes"
 	},
-	"main": "build/index.js",
-	"types": "index.d.ts",
+	"main": "build",
+	"types": "build/index.d.ts",
 	"engines": {
-		"node": ">=8"
+		"node": ">=10"
 	},
 	"scripts": {
-		"pretest": "npm run build",
-		"test": "tsc --noEmit --jsx react --module commonjs index.test-d.tsx && xo && ava",
-		"build": "babel src --out-dir=build",
-		"prepare": "npm run build"
+		"test": "tsc && xo && ava",
+		"prepare": "tsc"
 	},
 	"files": [
-		"build",
-		"index.d.ts"
+		"build"
 	],
 	"keywords": [
 		"ink",
@@ -35,54 +32,52 @@
 		"react"
 	],
 	"dependencies": {
-		"cli-spinners": "^1.0.0",
-		"prop-types": "^15.5.10"
+		"@types/react": "^16.9.38",
+		"cli-spinners": "^2.3.0"
 	},
 	"devDependencies": {
 		"@ava/babel": "^1.0.1",
-		"@babel/cli": "^7.2.3",
-		"@babel/core": "^7.3.3",
-		"@babel/plugin-proposal-class-properties": "^7.3.3",
-		"@babel/preset-react": "^7.0.0",
-		"@babel/register": "^7.10.3",
+		"@babel/preset-react": "^7.10.1",
+		"@sindresorhus/tsconfig": "^0.7.0",
+		"@vdemedes/prettier-config": "^1.0.0",
 		"ava": "^3.9.0",
-		"babel-eslint": "^10.1.0",
 		"delay": "^4.1.0",
 		"eslint-config-xo-react": "^0.23.0",
 		"eslint-plugin-react": "^7.20.0",
 		"eslint-plugin-react-hooks": "^4.0.4",
-		"ink": "^2.0.0",
-		"ink-testing-library": "^1.0.0",
+		"husky": "^4.2.5",
+		"ink": "^3.0.0-4",
+		"ink-testing-library": "^2.0.0",
+		"prettier": "^2.0.5",
+		"pretty-quick": "^2.0.1",
 		"react": "^16.8.2",
 		"typescript": "^3.9.5",
 		"xo": "^0.32.0"
 	},
 	"peerDependencies": {
 		"react": "^16.8.2",
-		"ink": "^2.0.0"
-	},
-	"babel": {
-		"plugins": [
-			"@babel/plugin-proposal-class-properties"
-		],
-		"presets": [
-			"@babel/preset-react"
-		]
+		"ink": "^3.0.0-4"
 	},
 	"ava": {
-		"babel": true,
-		"require": [
-			"@babel/register"
-		]
+		"babel": {
+			"testOptions": {
+				"presets": [
+					"@babel/preset-react"
+				]
+			}
+		}
 	},
 	"xo": {
-		"parser": "babel-eslint",
-		"extends": [
-			"xo-react"
-		],
-		"ignores": [
-			"index.d.ts",
-			"index.test-d.tsx"
-		]
+		"extends": "xo-react",
+		"prettier": true,
+		"rules": {
+			"react/prop-types": "off"
+		}
+	},
+	"prettier": "@vdemedes/prettier-config",
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
 	}
 }
