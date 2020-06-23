@@ -14,5 +14,9 @@ test('render spinner', async t => {
 
 	const uniqueFrames = [...new Set(frames)];
 
+	if (process.env.CI && uniqueFrames[uniqueFrames.length - 1] === '\n') {
+		uniqueFrames.pop();
+	}
+
 	t.deepEqual(uniqueFrames, spinner.frames);
 });
