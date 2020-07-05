@@ -2,7 +2,7 @@
 
 > Spinner component for [Ink](https://github.com/vadimdemedes/ink). Uses [cli-spinners](https://github.com/sindresorhus/cli-spinners) for the collection of spinners.
 
-Looking for a version compatible with Ink 2.x? Check out [previous release](https://github.com/vadimdemedes/ink-spinner/tree/v3.1.0).
+Looking for a version compatible with Ink 2.x? Check out [this release](https://github.com/vadimdemedes/ink-spinner/tree/v3.1.0).
 
 ## Install
 
