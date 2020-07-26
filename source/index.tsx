@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
-import type { FC } from 'react';
-import { Text } from 'ink';
+import {useState, useEffect} from 'react';
+import type {FC} from 'react';
+import {Text} from 'ink';
 import spinners from 'cli-spinners';
-import type { SpinnerName } from 'cli-spinners';
+import type {SpinnerName} from 'cli-spinners';
 
 interface Props {
 	/**
@@ -18,7 +18,7 @@ interface Props {
 /**
  * Spinner.
  */
-const Spinner: FC<Props> = ({ type = 'dots' }) => {
+const Spinner: FC<Props> = ({type = 'dots'}) => {
 	const [frame, setFrame] = useState(0);
 	const spinner = spinners[type];
 
