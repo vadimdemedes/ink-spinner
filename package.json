@@ -32,13 +32,13 @@
 		"react"
 	],
 	"dependencies": {
-		"@types/react": "^16.9.38",
 		"cli-spinners": "^2.3.0"
 	},
 	"devDependencies": {
 		"@ava/babel": "^1.0.1",
 		"@babel/preset-react": "^7.10.1",
 		"@sindresorhus/tsconfig": "^0.7.0",
+		"@types/react": "^16.9.46",
 		"@vdemedes/prettier-config": "^1.0.0",
 		"ava": "^3.9.0",
 		"delay": "^4.1.0",
