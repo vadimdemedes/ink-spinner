@@ -1,6 +1,6 @@
 {
 	"name": "ink-spinner",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"description": "Spinner component for Ink",
 	"license": "MIT",
 	"repository": "vadimdemedes/ink-spinner",
@@ -55,8 +55,8 @@
 		"xo": "^0.32.0"
 	},
 	"peerDependencies": {
-		"react": "^16.8.2",
-		"ink": "^3.0.0-4"
+		"react": ">=16.8.2",
+		"ink": ">=3.0.5"
 	},
 	"ava": {
 		"babel": {
