@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useState, useEffect} from 'react';
 import type {FC} from 'react';
 import {Text} from 'ink';
-import * as spinners from 'cli-spinners';
+import spinners from 'cli-spinners';
 import type {SpinnerName} from 'cli-spinners';
 
 interface Props {
