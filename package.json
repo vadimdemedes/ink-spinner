@@ -1,6 +1,6 @@
 {
 	"name": "ink-spinner",
-	"version": "4.0.3",
+	"version": "5.0.0",
 	"description": "Spinner component for Ink",
 	"license": "MIT",
 	"repository": "vadimdemedes/ink-spinner",
