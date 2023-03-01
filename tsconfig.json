@@ -2,7 +2,12 @@
 	"extends": "@sindresorhus/tsconfig",
 	"compilerOptions": {
 		"outDir": "build",
-		"target": "es2018",
-		"lib": ["es2018"]
+		"sourceMap": true,
+		"esModuleInterop": true
+	},
+	"include": ["source"],
+	"ts-node": {
+		"transpileOnly": true,
+		"files": true
 	}
 }
