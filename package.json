@@ -7,12 +7,15 @@
 	"author": {
 		"name": "Vadim Demedes",
 		"email": "vdemedes@gmail.com",
-		"url": "github.com/vadimdemedes"
+		"url": "https://github.com/vadimdemedes"
 	},
-	"main": "build",
-	"types": "build/index.d.ts",
+	"type": "module",
+	"exports": {
+		"types": "./build/index.d.ts",
+		"default": "./build/index.js"
+	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=14.16"
 	},
 	"scripts": {
 		"test": "tsc && xo && ava",
@@ -32,47 +35,46 @@
 		"react"
 	],
 	"dependencies": {
-		"cli-spinners": "^2.3.0"
+		"cli-spinners": "^2.7.0",
+		"ts-node": "^10.9.1"
 	},
 	"devDependencies": {
-		"@ava/babel": "^1.0.1",
-		"@babel/preset-react": "^7.10.1",
-		"@sindresorhus/tsconfig": "^0.7.0",
-		"@types/react": "^16.9.46",
-		"@vdemedes/prettier-config": "^1.0.0",
-		"ava": "^3.9.0",
-		"delay": "^4.1.0",
-		"eslint-config-xo-react": "^0.23.0",
-		"eslint-plugin-react": "^7.20.0",
-		"eslint-plugin-react-hooks": "^4.0.4",
+		"@sindresorhus/tsconfig": "3.0.1",
+		"@types/react": "^18.0.0",
+		"@vdemedes/prettier-config": "^1.0.1",
+		"ava": "^5.1.1",
+		"delay": "^5.0.0",
+		"eslint-config-xo-react": "^0.27.0",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
 		"husky": "^4.2.5",
-		"ink": "^3.0.0-4",
-		"ink-testing-library": "^2.0.0",
+		"ink": "^3.2.0",
+		"ink-testing-library": "^2.1.0",
 		"prettier": "^2.0.5",
 		"pretty-quick": "^2.0.1",
-		"react": "^16.8.2",
-		"typescript": "^3.9.5",
-		"xo": "^0.32.0"
+		"react": "^18.0.0",
+		"typescript": "^4.9.4",
+		"xo": "^0.53.0"
 	},
 	"peerDependencies": {
-		"react": ">=16.8.2",
-		"ink": ">=3.0.5"
+		"ink": ">=4.0.0",
+		"react": ">=18.0.0"
 	},
 	"ava": {
-		"babel": {
-			"testOptions": {
-				"presets": [
-					"@babel/preset-react"
-				]
-			}
-		}
+		"files": [
+			"test/**/*"
+		],
+		"extensions": {
+			"ts": "module",
+			"tsx": "module"
+		},
+		"nodeArguments": [
+			"--loader=ts-node/esm"
+		]
 	},
 	"xo": {
 		"extends": "xo-react",
-		"prettier": true,
-		"rules": {
-			"react/prop-types": "off"
-		}
+		"prettier": true
 	},
 	"prettier": "@vdemedes/prettier-config",
 	"husky": {

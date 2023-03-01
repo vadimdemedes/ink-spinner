@@ -1,11 +1,9 @@
-import * as React from 'react';
-import {useState, useEffect} from 'react';
-import type {FC} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text} from 'ink';
-import * as spinners from 'cli-spinners';
+import spinners from 'cli-spinners';
 import type {SpinnerName} from 'cli-spinners';
 
-interface Props {
+type Props = {
 	/**
 	 * Type of a spinner.
 	 * See [cli-spinners](https://github.com/sindresorhus/cli-spinners) for available spinners.
@@ -13,12 +11,12 @@ interface Props {
 	 * @default dots
 	 */
 	type?: SpinnerName;
-}
+};
 
 /**
  * Spinner.
  */
-const Spinner: FC<Props> = ({type = 'dots'}) => {
+function Spinner({type = 'dots'}: Props) {
 	const [frame, setFrame] = useState(0);
 	const spinner = spinners[type];
 
@@ -36,6 +34,6 @@ const Spinner: FC<Props> = ({type = 'dots'}) => {
 	}, [spinner]);
 
 	return <Text>{spinner.frames[frame]}</Text>;
-};
+}
 
 export default Spinner;
