@@ -7,7 +7,7 @@ Looking for a version compatible with Ink 2.x? Check out [this release](https://
 ## Install
 
 ```
-$ npm install ink-spinner
+npm install ink-spinner
 ```
 
 ## Usage
